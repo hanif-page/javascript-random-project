@@ -52,8 +52,6 @@ const calculateIncomeTax = (PKP) => {
 }
 
 // Pak Adi, a father of 3, and a good husband, have a monthly income of Rp100000000. What's his income tax yearly in Indonesia?
-
 let yearlyIncome = 100000000*12
-
 const taxableIncome = calculatePKP(yearlyIncome, true, 3)
-console.log(calculateIncomeTax(taxableIncome))
+console.log(calculateIncomeTax(taxableIncome)) // Output : 282400000
