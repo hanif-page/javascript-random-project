@@ -36,15 +36,18 @@ const calculateIncomeTax = (PKP) => {
         }
         else if(PKP > 250000000 && PKP <= 500000000)
         {
-            pajakDibayarkan += ((PKP-250000000)*tarif[2]) + 31500000 // 3mil + 28.5mil
+            pajakDibayarkan += ((PKP-250000000)*tarif[2]) + 31500000 
+            // 31500000 = 3mil + 28.5mil
         }
-        else if(PKP > 500000000 ** PKP <= 5000000000)
+        else if(PKP > 500000000 && PKP <= 5000000000)
         {
-            pajakDibayarkan += ((PKP-500000000)*tarif[3]) + 94000000 // 3mil + 28.5mil + 62.5mil
+            pajakDibayarkan += ((PKP-500000000)*tarif[3]) + 94000000 
+            // 94000000 = 3mil + 28.5mil + 62.5mil
         }
         else if(PKP > 5000000000)
         {
-            pajakDibayarkan += ((PKP-5000000000)*tarif[4]) + 1444000000 // 3mil + 28.5mil + 62.5mil + 1350mil
+            pajakDibayarkan += ((PKP-5000000000)*tarif[4]) + 1444000000 
+            // 1444000000 = 3mil + 28.5mil + 62.5mil + 1350mil
         }
         
         return pajakDibayarkan // final income tax
@@ -53,5 +56,10 @@ const calculateIncomeTax = (PKP) => {
 
 // Pak Adi, a father of 3, and a good husband, have a monthly income of Rp100000000. What's his income tax yearly in Indonesia?
 let yearlyIncome = 100000000*12
-const taxableIncome = calculatePKP(yearlyIncome, true, 3)
-console.log(calculateIncomeTax(taxableIncome)) // Output : 282400000
+let taxableIncome = calculatePKP(yearlyIncome, true, 3)
+console.log(`Pak Adi Yearly Income Tax : Rp${calculateIncomeTax(taxableIncome)}`) // Output : 282400000
+
+// Ranti, a single without any child, an artist, have a total monthly income of Rp450000000. What's his income tax monthly?
+yearlyIncome = 450000000 * 12
+taxableIncome = calculatePKP(yearlyIncome, false, 0)
+console.log(`Ranti Monthly Tax : Rp${calculateIncomeTax(taxableIncome)/12}`) // Output : 130425000
